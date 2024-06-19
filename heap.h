@@ -21,4 +21,14 @@ struct heap
 	int* array;
 };
 
+/*
+ * Function: create_heaps
+ * ----------------------
+ *  creates a new heaps data structure
+ *
+ *  returns the newly created heaps
+ */
+
+struct heap create_heap();
+
 #endif
