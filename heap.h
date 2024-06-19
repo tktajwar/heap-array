@@ -22,7 +22,7 @@ struct heap
 };
 
 /*
- * Function: create_heaps
+ * Function: create_heap
  * ----------------------
  *  creates a new heaps data structure
  *
