@@ -31,4 +31,14 @@ struct heap
 
 struct heap create_heap();
 
+/*
+ * Function: clear_heap
+ * --------------------
+ *  frees the heap array and sets the size and length of heap to initial values
+ *
+ *  struct heap *h: pointer to the heap to be cleared
+ */
+
+void clear_heap(struct heap* h);
+
 #endif

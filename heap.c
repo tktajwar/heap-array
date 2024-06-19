@@ -14,3 +14,10 @@ struct heap create_heap()
 
 	return h;
 }
+
+void clear_heap(struct heap* h)
+{
+	h->size = INITIAL_SIZE;
+	h->length = 0;
+	free(h->array);
+}
