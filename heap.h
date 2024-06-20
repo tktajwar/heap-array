@@ -41,4 +41,14 @@ struct heap create_heap();
 
 void clear_heap(struct heap* h);
 
+/*
+ * Function: extend_heap_size
+ * --------------------------
+ *  add space for next level of leaves
+ *
+ *  struct heap* h: pointer to the heap to be extended
+ */
+
+void extend_heap_size(struct heap* h);
+
 #endif
