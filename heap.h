@@ -1,6 +1,19 @@
 #ifndef HEAP_H_
 #define HEAP_H_
 
+/*
+ * category: HEAP_TYPE
+ * -------------------
+ *  declare the type of heap tree
+ *
+ *  defines some functions based on this value
+ *
+ *  1 = Max heap
+ *  2 = Min heap
+ */
+
+#define HEAP_TYPE 1
+
 // the initial size of the heaps when declared
 #define HEAP_INITIAL_SIZE 7
 
