@@ -14,7 +14,7 @@
 
 #define HEAP_TYPE 1
 
-// the initial size of the heaps when declared
+// the initial size of the heaps when initialized
 #define HEAP_INITIAL_SIZE 7
 
 // get the parent index
