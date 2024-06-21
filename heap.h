@@ -20,6 +20,10 @@
 // get the parent index
 #define HEAP_PARENT(INDEX) (((INDEX)-1) / 2)
 
+// get children index
+#define HEAP_LEFT_CHILD(INDEX) (((INDEX)*2) + 1)
+#define HEAP_RIGHT_CHILD(INDEX) (((INDEX)*2) + 2)
+
 /*
  * Structure: Heaps
  * ----------------
