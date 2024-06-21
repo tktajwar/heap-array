@@ -72,3 +72,10 @@ void heapify_up(struct heap* h)
 		index = parent_index;
 	}
 }
+
+void insert_to_heap(struct heap* h, int n)
+{
+	ensure_heap_size(h);
+	h->array[h->length++] = n;
+	heapify_up(h);
+}

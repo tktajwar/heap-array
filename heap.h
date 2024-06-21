@@ -99,4 +99,16 @@ void extend_heap_size(struct heap* h);
  */
 
 void heapify_up(struct heap* h);
+
+/*
+ * Function: insert_to_heap
+ * ------------------------
+ *  inserts an element to heap and positions it to its right place
+ *
+ *  struct heap* h: pointer to the heap to insert to
+ *  int n:          the element to be added
+ */
+
+void insert_to_heap(struct heap* h, int n);
+
 #endif
