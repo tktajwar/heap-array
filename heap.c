@@ -4,6 +4,15 @@
 
 int const INITIAL_SIZE = HEAP_INITIAL_SIZE;
 
+static inline int ensure_heap_size(struct heap* h)
+{
+	if (h->size > h->length)
+		return h->size - h->length;
+	else
+		extend_heap_size(h);
+	return 0;
+}
+
 struct heap create_heap()
 {
 	struct heap h;

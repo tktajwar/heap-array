@@ -65,22 +65,16 @@ void clear_heap(struct heap* h);
 void extend_heap_size(struct heap* h);
 
 /*
- * Function: ensure_heap_size
- * --------------------------
+ * Static Function: ensure_heap_size
+ * ---------------------------------
  *  calculates if there's space left for one/more items and extends if not
  *
  *  struct heap* h: pointer to the heap to be ensured
  *
  *  returns the amount of space left
+ *
+ *  No use outside of library code
  */
 
-static inline int ensure_heap_size(struct heap* h)
-{
-	if (h->size > h->length)
-		return h->size - h->length;
-	else
-		extend_heap_size(h);
-	return 0;
-}
 
 #endif
