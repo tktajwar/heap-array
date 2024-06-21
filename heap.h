@@ -17,6 +17,8 @@
 // the initial size of the heaps when declared
 #define HEAP_INITIAL_SIZE 7
 
+#define HEAP_PARENT(INDEX) (((INDEX)-1) / 2)
+
 /*
  * Structure: Heaps
  * ----------------
