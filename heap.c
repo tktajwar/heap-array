@@ -49,3 +49,26 @@ void extend_heap_size(struct heap* h)
 	free(h->array);
 	h->array = new_array;
 }
+
+void heapify_up(struct heap* h)
+{
+	int index = h->length - 1;
+	int parent_index;
+
+	while (index > 0) {
+		parent_index = HEAP_PARENT(index);
+
+		// break if last element reached the right position
+		#if HEAP_TYPE == 1
+		if (h->array[index] < h->array[parent_index])
+			break;
+		#else
+		if (h->array[index] > h->array[parent_index])
+			break;
+		#endif
+
+		// else swap with parent and continue doing so
+		swap_heap_elements(h, index, parent_index);
+		index = parent_index;
+	}
+}
