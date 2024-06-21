@@ -21,6 +21,29 @@ static inline void swap_heap_elements(struct heap* h, int index1, int index2)
 	h->array[index2] = temp;
 }
 
+static inline void heapify_up(struct heap* h)
+{
+	int index = h->length - 1;
+	int parent_index;
+
+	while (index > 0) {
+		parent_index = HEAP_PARENT(index);
+
+		// break if last element reached the right position
+		#if HEAP_TYPE == 1
+		if (h->array[index] < h->array[parent_index])
+			break;
+		#else
+		if (h->array[index] > h->array[parent_index])
+			break;
+		#endif
+
+		// else swap with parent and continue doing so
+		swap_heap_elements(h, index, parent_index);
+		index = parent_index;
+	}
+}
+
 struct heap create_heap()
 {
 	struct heap h;
@@ -48,29 +71,6 @@ void extend_heap_size(struct heap* h)
 		new_array[i] = h->array[i];
 	free(h->array);
 	h->array = new_array;
-}
-
-void heapify_up(struct heap* h)
-{
-	int index = h->length - 1;
-	int parent_index;
-
-	while (index > 0) {
-		parent_index = HEAP_PARENT(index);
-
-		// break if last element reached the right position
-		#if HEAP_TYPE == 1
-		if (h->array[index] < h->array[parent_index])
-			break;
-		#else
-		if (h->array[index] > h->array[parent_index])
-			break;
-		#endif
-
-		// else swap with parent and continue doing so
-		swap_heap_elements(h, index, parent_index);
-		index = parent_index;
-	}
 }
 
 void insert_to_heap(struct heap* h, int n)

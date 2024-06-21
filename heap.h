@@ -96,14 +96,14 @@ void extend_heap_size(struct heap* h);
  */
 
 /*
- * Function: heapify_up
+ * Static function: heapify_up
  * --------------------
  *  moves the last element in heap up to its right position
  *
  *  struct heap* h: pointer to the heap to modify
+ *
+ *  No use outside of library code
  */
-
-void heapify_up(struct heap* h);
 
 /*
  * Function: insert_to_heap
