@@ -78,5 +78,16 @@ void extend_heap_size(struct heap* h);
  *  No use outside of library code
  */
 
+/*
+ * Static function: swap_heap_elements
+ * -----------------------------------
+ *  swap two elements in the heap
+ *
+ *  struct heap* h: pointer to the heap to be modified
+ *  int index1:     index of the first element
+ *  int index2:     index of the second element
+ *
+ *  No use outside of library code
+ */
 
 #endif

@@ -13,6 +13,14 @@ static inline int ensure_heap_size(struct heap* h)
 	return 0;
 }
 
+static inline void swap_heap_elements(struct heap* h, int index1, int index2)
+{
+	int temp;
+	temp = h->array[index1];
+	h->array[index1] = h->array[index2];
+	h->array[index2] = temp;
+}
+
 struct heap create_heap()
 {
 	struct heap h;
