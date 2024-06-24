@@ -106,6 +106,17 @@ void extend_heap_size(struct heap* h);
  */
 
 /*
+ * Static function: heapify_down
+ * -----------------------------
+ *  moves the element in heap down to its right position
+ *
+ *  struct heap* h: pointer to the heap to modify
+ *  int index:      the index of the element
+ *
+ *  No use outside of library code
+ */
+
+/*
  * Function: insert_to_heap
  * ------------------------
  *  inserts an element to heap and positions it to its right place

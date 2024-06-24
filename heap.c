@@ -44,6 +44,39 @@ static inline void heapify_up(struct heap* h)
 	}
 }
 
+static inline void heapify_down(struct heap* h, int index)
+{
+	int left_child_index, right_child_index, next_child_index;
+
+	left_child_index = HEAP_LEFT_CHILD(index);
+	right_child_index = HEAP_RIGHT_CHILD(index);
+
+	while (left_child_index < h->length) {
+		next_child_index = left_child_index;
+
+		#if HEAP_TYPE == 1
+		if ( (right_child_index < h->length) &&
+		(h->array[right_child_index] > h->array[left_child_index]) )
+		#else
+		if ( (right_child_index < h->length) &&
+		(h->array[right_child_index] < h->array[left_child_index]) )
+		#endif
+			next_child_index = right_child_index;
+
+		#if HEAP_TYPE == 1
+		if (h->array[index] > h->array[next_child_index])
+		#else
+		if (h->array[index] < h->array[next_child_index])
+		#endif
+			break;
+
+		swap_heap_elements(h, index, next_child_index);
+		index = next_child_index;
+		left_child_index = HEAP_LEFT_CHILD(index);
+		right_child_index = HEAP_RIGHT_CHILD(index);
+	}
+}
+
 struct heap create_heap()
 {
 	struct heap h;
