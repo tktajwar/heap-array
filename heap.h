@@ -12,7 +12,9 @@
  *  2 = Min heap
  */
 
-#define HEAP_TYPE 1
+enum heap_type {max = 1, min = 2};
+
+#define HEAP_TYPE max
 
 // the initial size of the heaps when initialized
 #define HEAP_INITIAL_SIZE 7
