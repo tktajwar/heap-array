@@ -112,3 +112,18 @@ void insert_to_heap(struct heap* h, int n)
 	h->array[h->length++] = n;
 	heapify_up(h);
 }
+
+int pop_from_heap(struct heap* h, int index)
+{
+	// invalid index
+	if (index < 0 || index >= h->length)
+		return 1;
+
+	// remove the element
+	h->length--;
+	h->array[index] = h->array[h->length];
+	h->array[h->length] = 0;
+	heapify_down(h, index);
+
+	return 0;
+}

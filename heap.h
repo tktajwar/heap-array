@@ -127,4 +127,15 @@ void extend_heap_size(struct heap* h);
 
 void insert_to_heap(struct heap* h, int n);
 
+/*
+ * Function: pop_from_heap
+ * --------------------------
+ *  pops an element from the heap
+ *
+ *  struct heap* h: pointer to the heap
+ *  int index:      the index of the element
+ */
+
+int pop_from_heap(struct heap* h, int index);
+
 #endif
