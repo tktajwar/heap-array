@@ -32,7 +32,7 @@ static inline void heapify_up(struct heap* h)
 		parent_index = HEAP_PARENT(index);
 
 		// break if last element reached the right position
-		#if HEAP_TYPE == max
+		#if HEAP_TYPE == MAX_HEAP
 		if (h->array[index] < h->array[parent_index])
 			break;
 		#else
@@ -56,7 +56,7 @@ static inline void heapify_down(struct heap* h, int index)
 	while (left_child_index < h->length) {
 		next_child_index = left_child_index;
 
-		#if HEAP_TYPE == max
+		#if HEAP_TYPE == MAX_HEAP
 		if ( (right_child_index < h->length) &&
 		(h->array[right_child_index] > h->array[left_child_index]) )
 		#else
@@ -65,7 +65,7 @@ static inline void heapify_down(struct heap* h, int index)
 		#endif
 			next_child_index = right_child_index;
 
-		#if HEAP_TYPE == max
+		#if HEAP_TYPE == MAX_HEAP
 		if (h->array[index] > h->array[next_child_index])
 		#else
 		if (h->array[index] < h->array[next_child_index])

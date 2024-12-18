@@ -7,13 +7,13 @@ It can be switched between min heap and max heap by modifying the header file
 For Max heap:
 
 ```h
-#define HEAP_TYPE max
+#define HEAP_TYPE MAX_HEAP
 ```
 
 For Min heap:
 
 ```h
-#define HEAP_TYPE min
+#define HEAP_TYPE MIN_HEAP
 ```
 
 ![Example of a binary max-heap from wikipedia](https://upload.wikimedia.org/wikipedia/commons/c/c4/Max-Heap-new.svg)
