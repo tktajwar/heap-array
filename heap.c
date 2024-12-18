@@ -6,10 +6,12 @@ int const INITIAL_SIZE = HEAP_INITIAL_SIZE;
 
 static inline int ensure_heap_size(struct heap* h)
 {
-	if (h->size > h->length)
-		return h->size - h->length;
-	else
+	if (h->length >= h->size)
 		extend_heap_size(h);
+	else if ((h->length)*2 < h->size)
+		cut_heap_size(h);
+	else
+		return h->size - h->length;
 	return 0;
 }
 
@@ -106,6 +108,16 @@ void extend_heap_size(struct heap* h)
 	h->array = new_array;
 }
 
+void cut_heap_size(struct heap* h)
+{
+	h->size /= 2;
+	int* new_array = (int *) malloc(sizeof(int) * h->size);
+	for (int i=0; i < h->length; i++)
+		new_array[i] = h->array[i];
+	free(h->array);
+	h->array = new_array;
+}
+
 void insert_to_heap(struct heap* h, int n)
 {
 	ensure_heap_size(h);
@@ -125,6 +137,7 @@ int pop_from_heap(struct heap* h, int index)
 	h->length--;
 	h->array[index] = h->array[h->length];
 	h->array[h->length] = 0;
+	ensure_heap_size(h);
 	heapify_down(h, index);
 
 }

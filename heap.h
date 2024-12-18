@@ -74,6 +74,16 @@ void clear_heap(struct heap* h);
 void extend_heap_size(struct heap* h);
 
 /*
+ * Function: cut_heap_size
+ * --------------------------
+ *  cut space for unnecessary level of leaves
+ *
+ *  struct heap* h: pointer to the heap to be cut
+ */
+
+void cut_heap_size(struct heap* h);
+
+/*
  * Static Function: ensure_heap_size
  * ---------------------------------
  *  calculates if there's space left for one/more items and extends if not
