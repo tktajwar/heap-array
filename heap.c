@@ -140,4 +140,37 @@ int pop_from_heap(struct heap* h, int index)
 	ensure_heap_size(h);
 	heapify_down(h, index);
 
+	return popped;
 }
+
+#if HEAP_TYPE == MAX_HEAP
+int pop_heap_max(struct heap* h)
+#else
+int pop_heap_min(struct heap* h)
+#endif
+{
+	return pop_from_heap(h, 0);
+}
+
+#if HEAP_TYPE == MIN_HEAP
+#warning "It's a min type"
+int pop_heap_max(struct heap* h)
+{
+	int max_index = h->size/2;
+	for (int i = (h->size/2)+1; i < h->length; i++) {
+		if (h->array[i] > h->array[max_index])
+			max_index = i;
+	}
+	return pop_from_heap(h, max_index);
+}
+#else
+int pop_heap_min(struct heap* h)
+{
+	int min_index = h->size/2;
+	for (int i = (h->size/2)+1; i < h->length; i++) {
+		if (h->array[i] < h->array[min_index])
+			min_index = i;
+	}
+	return pop_from_heap(h, min_index);
+}
+#endif

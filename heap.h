@@ -153,4 +153,28 @@ void insert_to_heap(struct heap* h, int n);
 
 int pop_from_heap(struct heap* h, int index);
 
+/*
+ * Function: pop_heap_max
+ * --------------------------
+ *  pops the maximum element from the heap
+ *
+ *  struct heap* h: pointer to the heap
+ *
+ *  returns 0 if heap is empty otherwise returns the value of max
+ */
+
+int pop_heap_max(struct heap* h);
+
+/*
+ * Function: pop_heap_min
+ * --------------------------
+ *  pops the minimum element from the heap
+ *
+ *  struct heap* h: pointer to the heap
+ *
+ *  returns 0 if heap is empty otherwise returns the value of min
+ */
+
+int pop_heap_min(struct heap* h);
+
 #endif
