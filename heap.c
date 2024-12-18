@@ -117,7 +117,9 @@ int pop_from_heap(struct heap* h, int index)
 {
 	// invalid index
 	if (index < 0 || index >= h->length)
-		return 1;
+		return 0;
+
+	int popped = h->array[index];
 
 	// remove the element
 	h->length--;
@@ -125,5 +127,4 @@ int pop_from_heap(struct heap* h, int index)
 	h->array[h->length] = 0;
 	heapify_down(h, index);
 
-	return 0;
 }

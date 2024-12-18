@@ -136,6 +136,8 @@ void insert_to_heap(struct heap* h, int n);
  *
  *  struct heap* h: pointer to the heap
  *  int index:      the index of the element
+ *
+ *  returns 0 if invalid index otherwise returns the value of popped element
  */
 
 int pop_from_heap(struct heap* h, int index);
